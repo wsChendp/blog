@@ -18,5 +18,6 @@ func main() {
 	defer global.Redis.Close()
 	initialize.InitCron()
 
+	
 	core.RunServer()
 }
