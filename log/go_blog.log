@@ -1,0 +1,2 @@
+{"level":"ERROR","time":"2025-04-08T23:51:01.411+0800","caller":"initialize/gorm.go:19","msg":"数据库连接失败","error":"dial tcp 127.0.0.1:3306: connect: connection refused"}
+{"level":"ERROR","time":"2025-04-08T23:51:01.411+0800","caller":"initialize/redis.go:22","msg":"redis连接失败","error":"dial tcp 127.0.0.1:6379: connect: connection refused"}
