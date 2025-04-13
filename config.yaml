@@ -31,7 +31,7 @@ mysql:
     config: charset=utf8mb4&parseTime=True&loc=Local
     db_name: blog_db
     username: blog_db
-    password: trJm6TdEG5m5LES3
+    password: ***
     max_idle_conns: 10
     max_open_conns: 100
     log_mode: info
