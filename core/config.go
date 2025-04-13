@@ -7,7 +7,7 @@ import (
 	"server/utils"
 )
 
-// InitConf 从 YAML 文件加载配置
+// InitConf 浠?YAML 鏂囦欢鍔犺浇閰嶇疆
 func InitConf() *config.Config {
 	c := &config.Config{}
 	yamlConf, err := utils.LoadYAML()

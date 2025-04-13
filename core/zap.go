@@ -11,7 +11,7 @@ import (
 	"gopkg.in/natefinch/lumberjack.v2"
 )
 
-func InitLogger() *zap.Logger {  // 初始化日志记录器
+func InitLogger() *zap.Logger {  // 鍒濆鍖栨棩蹇楄褰曞櫒
 	zapConfig := global.Config.Zap
 
 	writeSyncer := getLogWriter(zapConfig.Filename, zapConfig.MaxSize, zapConfig.MaxBackups, zapConfig.MaxAge)
@@ -34,7 +34,7 @@ func InitLogger() *zap.Logger {  // 初始化日志记录器
 }
 
 func getLogWriter(filename string, maxSize, maxBackups, maxAge int) zapcore.WriteSyncer {
-	// 日志文件配置，处理日志滚动记录，切割归档
+	// 鏃ュ織鏂囦欢閰嶇疆锛屽鐞嗘棩蹇楁粴鍔ㄨ褰曪紝鍒囧壊褰掓。
 	lumberJackLogger := &lumberjack.Logger{
 		Filename:   filename,
 		MaxSize:    maxSize,

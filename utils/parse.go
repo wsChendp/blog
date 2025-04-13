@@ -7,53 +7,53 @@ import (
 	"time"
 )
 
-// ParseDuration 解析持续时间字符串为 time.Duration。
-// 持续时间字符串应由数字值和时间单位组成，单位可以是 "d" 表示天，"h" 表示小时，"m" 表示分钟，"s" 表示秒。
-// 例如，"1d2h30m" 会被解析为 1 天、2 小时和 30 分钟。
-// 如果字符串为空或格式无效，则返回错误。
+// ParseDuration 瑙ｆ瀽鎸佺画鏃堕棿瀛楃涓蹭负 time.Duration銆?
+// 鎸佺画鏃堕棿瀛楃涓插簲鐢辨暟瀛楀€煎拰鏃堕棿鍗曚綅缁勬垚锛屽崟浣嶅彲浠ユ槸 "d" 琛ㄧず澶╋紝"h" 琛ㄧず灏忔椂锛?m" 琛ㄧず鍒嗛挓锛?s" 琛ㄧず绉掋€?
+// 渚嬪锛?1d2h30m" 浼氳瑙ｆ瀽涓?1 澶┿€? 灏忔椂鍜?30 鍒嗛挓銆?
+// 濡傛灉瀛楃涓蹭负绌烘垨鏍煎紡鏃犳晥锛屽垯杩斿洖閿欒銆?
 func ParseDuration(d string) (time.Duration, error) {
-	d = strings.TrimSpace(d) // 去除字符串两端的空格
+	d = strings.TrimSpace(d) // 鍘婚櫎瀛楃涓蹭袱绔殑绌烘牸
 	if len(d) == 0 {
 		return 0, fmt.Errorf("empty duration string")
 	}
 
-	// 定义每个单位及其对应的持续时间值
+	// 瀹氫箟姣忎釜鍗曚綅鍙婂叾瀵瑰簲鐨勬寔缁椂闂村€?
 	unitPattern := map[string]time.Duration{
-		"d": time.Hour * 24, // "d" 对应 24 小时
-		"h": time.Hour,      // "h" 对应 1 小时
-		"m": time.Minute,    // "m" 对应 1 分钟
-		"s": time.Second,    // "s" 对应 1 秒
+		"d": time.Hour * 24, // "d" 瀵瑰簲 24 灏忔椂
+		"h": time.Hour,      // "h" 瀵瑰簲 1 灏忔椂
+		"m": time.Minute,    // "m" 瀵瑰簲 1 鍒嗛挓
+		"s": time.Second,    // "s" 瀵瑰簲 1 绉?
 	}
 
-	var totalDuration time.Duration // 总持续时间
-	// 遍历 "d"、"h"、"m"、"s" 单位
+	var totalDuration time.Duration // 鎬绘寔缁椂闂?
+	// 閬嶅巻 "d"銆?h"銆?m"銆?s" 鍗曚綅
 	for _, unit := range []string{"d", "h", "m", "s"} {
-		// 提取所有以当前单位结尾的部分
+		// 鎻愬彇鎵€鏈変互褰撳墠鍗曚綅缁撳熬鐨勯儴鍒?
 		for strings.Contains(d, unit) {
-			// 找到单位的位置
+			// 鎵惧埌鍗曚綅鐨勪綅缃?
 			unitIndex := strings.Index(d, unit)
-			// 提取单位前面的部分
+			// 鎻愬彇鍗曚綅鍓嶉潰鐨勯儴鍒?
 			part := d[:unitIndex]
 			if part == "" {
-				part = "0" // 如果部分为空，默认为 0
+				part = "0" // 濡傛灉閮ㄥ垎涓虹┖锛岄粯璁や负 0
 			}
-			// 将部分转换为整数值
+			// 灏嗛儴鍒嗚浆鎹负鏁存暟鍊?
 			val, err := strconv.Atoi(part)
 			if err != nil {
 				return 0, fmt.Errorf("invalid duration part: %v", err)
 			}
-			// 将该部分的持续时间累加到总持续时间
+			// 灏嗚閮ㄥ垎鐨勬寔缁椂闂寸疮鍔犲埌鎬绘寔缁椂闂?
 			totalDuration += time.Duration(val) * unitPattern[unit]
-			// 从字符串中移除已处理的部分
+			// 浠庡瓧绗︿覆涓Щ闄ゅ凡澶勭悊鐨勯儴鍒?
 			d = d[unitIndex+len(unit):]
 		}
 	}
 
-	// 检查是否有剩余未处理的字符
+	// 妫€鏌ユ槸鍚︽湁鍓╀綑鏈鐞嗙殑瀛楃
 	if len(d) > 0 {
 		return 0, fmt.Errorf("unrecognized duration format")
 	}
 
-	// 返回总的持续时间
+	// 杩斿洖鎬荤殑鎸佺画鏃堕棿
 	return totalDuration, nil
 }

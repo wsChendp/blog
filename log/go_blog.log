@@ -1,2 +1,53 @@
 {"level":"ERROR","time":"2025-04-08T23:51:01.411+0800","caller":"initialize/gorm.go:19","msg":"数据库连接失败","error":"dial tcp 127.0.0.1:3306: connect: connection refused"}
 {"level":"ERROR","time":"2025-04-08T23:51:01.411+0800","caller":"initialize/redis.go:22","msg":"redis连接失败","error":"dial tcp 127.0.0.1:6379: connect: connection refused"}
+{"level":"ERROR","time":"2025-04-12T23:38:53.637+0800","caller":"initialize/gorm.go:19","msg":"鏁版嵁搴撹繛鎺ュけ璐?","error":"Error 1045 (28000): Access denied for user 'root'@'218.17.40.248' (using password: YES)"}
+{"level":"ERROR","time":"2025-04-12T23:38:53.639+0800","caller":"initialize/redis.go:22","msg":"redis杩炴帴澶辫触","error":"dial tcp 127.0.0.1:6379: connectex: No connection could be made because the target machine actively refused it."}
+{"level":"ERROR","time":"2025-04-12T23:40:09.066+0800","caller":"initialize/redis.go:22","msg":"redis杩炴帴澶辫触","error":"dial tcp 127.0.0.1:6379: connectex: No connection could be made because the target machine actively refused it."}
+{"level":"ERROR","time":"2025-04-12T23:40:36.397+0800","caller":"initialize/redis.go:22","msg":"redis connection failed","error":"dial tcp 127.0.0.1:6379: connectex: No connection could be made because the target machine actively refused it."}
+{"level":"INFO","time":"2025-04-12T23:41:44.765+0800","caller":"core/server.go:24","msg":"server run success on ","address":"0.0.0.0:8080"}
+{"level":"INFO","time":"2025-04-12T23:47:18.310+0800","caller":"flag/enter.go:31","msg":"SQL completed"}
+{"level":"INFO","time":"2025-04-13T00:11:27.090+0800","caller":"core/server.go:24","msg":"server run success on ","address":"0.0.0.0:8080"}
+{"level":"ERROR","time":"2025-04-13T00:35:35.144+0800","caller":"flag/enter.go:64","msg":"Failed to export SQL data:","error":"exec: \"mysqldump\": executable file not found in %PATH%"}
+{"level":"ERROR","time":"2025-04-13T00:38:20.205+0800","caller":"flag/enter.go:64","msg":"Failed to export SQL data:","error":"执行远程mysqldump失败: exec: \"ssh\": executable file not found in %PATH%, 输出: "}
+{"level":"ERROR","time":"2025-04-13T00:41:11.483+0800","caller":"flag/enter.go:64","msg":"Failed to export SQL data:","error":"执行远程mysqldump失败: exec: \"ssh\": executable file not found in %PATH%, 输出: "}
+{"level":"ERROR","time":"2025-04-13T00:43:01.143+0800","caller":"flag/enter.go:64","msg":"Failed to export SQL data:","error":"执行远程mysqldump失败: exec: \"ssh\": executable file not found in %PATH%, 输出: "}
+{"level":"ERROR","time":"2025-04-13T00:48:34.401+0800","caller":"flag/enter.go:64","msg":"Failed to export SQL data:","error":"执行远程mysqldump失败: exec: \"ssh\": executable file not found in %PATH%, 输出: "}
+{"level":"INFO","time":"2025-04-13T00:50:19.912+0800","caller":"flag/sql_export.go:31","msg":"备份过程开始"}
+{"level":"INFO","time":"2025-04-13T00:50:19.913+0800","caller":"flag/sql_export.go:32","msg":"请手动执行以下步骤："}
+{"level":"INFO","time":"2025-04-13T00:50:19.913+0800","caller":"flag/sql_export.go:33","msg":"1. 登录到服务器: ssh root@120.26.56.208"}
+{"level":"INFO","time":"2025-04-13T00:50:19.913+0800","caller":"flag/sql_export.go:34","msg":"2. 在服务器上执行: mysqldump -ublog_db -ptrJm6TdEG5m5LES3 --no-tablespaces blog_db > /tmp/mysql_20250413.sql"}
+{"level":"INFO","time":"2025-04-13T00:50:19.913+0800","caller":"flag/sql_export.go:36","msg":"3. 退出服务器连接"}
+{"level":"INFO","time":"2025-04-13T00:50:19.913+0800","caller":"flag/sql_export.go:37","msg":"4. 在本地执行: scp root@120.26.56.208:/tmp/mysql_20250413.sql mysql_20250413.sql"}
+{"level":"INFO","time":"2025-04-13T00:50:19.913+0800","caller":"flag/sql_export.go:39","msg":"5. 清理服务器上的临时文件: ssh root@120.26.56.208 rm /tmp/mysql_20250413.sql"}
+{"level":"INFO","time":"2025-04-13T00:50:19.914+0800","caller":"flag/sql_export.go:40","msg":"以上命令需要您手动在终端中执行"}
+{"level":"INFO","time":"2025-04-13T00:50:19.914+0800","caller":"flag/sql_export.go:42","msg":"备份脚本已保存到 ./backup_script.sh，如有需要可以上传到服务器使用"}
+{"level":"INFO","time":"2025-04-13T00:50:19.914+0800","caller":"flag/enter.go:66","msg":"Successfully exported SQL data"}
+{"level":"INFO","time":"2025-04-13T00:51:28.815+0800","caller":"flag/sql_export.go:31","msg":"备份过程开始"}
+{"level":"INFO","time":"2025-04-13T00:51:28.815+0800","caller":"flag/sql_export.go:32","msg":"请手动执行以下步骤："}
+{"level":"INFO","time":"2025-04-13T00:51:28.815+0800","caller":"flag/sql_export.go:33","msg":"1. 登录到服务器: ssh root@120.26.56.208"}
+{"level":"INFO","time":"2025-04-13T00:51:28.816+0800","caller":"flag/sql_export.go:34","msg":"2. 在服务器上执行: mysqldump -ublog_db -ptrJm6TdEG5m5LES3 --no-tablespaces blog_db > /tmp/mysql_20250413.sql"}
+{"level":"INFO","time":"2025-04-13T00:51:28.816+0800","caller":"flag/sql_export.go:36","msg":"3. 退出服务器连接"}
+{"level":"INFO","time":"2025-04-13T00:51:28.816+0800","caller":"flag/sql_export.go:37","msg":"4. 在本地执行: scp root@120.26.56.208:/tmp/mysql_20250413.sql mysql_20250413.sql"}
+{"level":"INFO","time":"2025-04-13T00:51:28.816+0800","caller":"flag/sql_export.go:39","msg":"5. 清理服务器上的临时文件: ssh root@120.26.56.208 rm /tmp/mysql_20250413.sql"}
+{"level":"INFO","time":"2025-04-13T00:51:28.816+0800","caller":"flag/sql_export.go:40","msg":"以上命令需要您手动在终端中执行"}
+{"level":"INFO","time":"2025-04-13T00:51:28.817+0800","caller":"flag/sql_export.go:42","msg":"备份脚本已保存到 ./backup_script.sh，如有需要可以上传到服务器使用"}
+{"level":"INFO","time":"2025-04-13T00:51:28.818+0800","caller":"flag/enter.go:66","msg":"Successfully exported SQL data"}
+{"level":"INFO","time":"2025-04-13T00:57:51.166+0800","caller":"flag/sql_export.go:22","msg":"请输入服务器登录密码"}
+{"level":"INFO","time":"2025-04-13T00:57:56.232+0800","caller":"flag/sql_export.go:29","msg":"正在服务器上执行数据备份..."}
+{"level":"INFO","time":"2025-04-13T00:57:56.232+0800","caller":"flag/sql_export.go:36","msg":"执行命令: sshpass -p ****** ssh root@120.26.56.208 mysqldump ..."}
+{"level":"ERROR","time":"2025-04-13T00:57:56.271+0800","caller":"flag/sql_export.go:44","msg":"备份命令执行失败","error":"exec: \"bash\": executable file not found in %PATH%","stderr":"","stdout":""}
+{"level":"INFO","time":"2025-04-13T00:58:16.310+0800","caller":"flag/sql_export.go:22","msg":"请输入服务器登录密码"}
+{"level":"INFO","time":"2025-04-13T00:59:53.854+0800","caller":"flag/sql_export.go:29","msg":"正在服务器上执行数据备份..."}
+{"level":"INFO","time":"2025-04-13T00:59:53.854+0800","caller":"flag/sql_export.go:36","msg":"执行命令: sshpass -p ****** ssh root@120.26.56.208 mysqldump ..."}
+{"level":"ERROR","time":"2025-04-13T00:59:53.886+0800","caller":"flag/sql_export.go:44","msg":"备份命令执行失败","error":"exec: \"bash\": executable file not found in %PATH%","stderr":"","stdout":""}
+{"level":"INFO","time":"2025-04-13T01:00:01.824+0800","caller":"flag/sql_export.go:29","msg":"正在连接阿里云数据库进行备份..."}
+{"level":"INFO","time":"2025-04-13T01:00:01.826+0800","caller":"flag/sql_export.go:30","msg":"使用配置: 主机:120.26.56.208, 端口:3306, 用户:blog_db, 数据库:blog_db"}
+{"level":"ERROR","time":"2025-04-13T01:00:01.827+0800","caller":"flag/sql_export.go:45","msg":"执行mysqldump命令失败","error":"exec: \"mysqldump\": executable file not found in %PATH%"}
+{"level":"INFO","time":"2025-04-13T01:00:01.827+0800","caller":"flag/sql_export.go:46","msg":"请确保本地已安装mysqldump客户端，并且可以远程连接到阿里云数据库"}
+{"level":"INFO","time":"2025-04-13T01:00:01.827+0800","caller":"flag/sql_export.go:47","msg":"您也可以登录到阿里云服务器，使用以下命令进行备份:"}
+{"level":"INFO","time":"2025-04-13T01:00:01.828+0800","caller":"flag/sql_export.go:48","msg":"mysqldump -ublog_db -ptrJm6TdEG5m5LES3 --no-tablespaces blog_db > /tmp/backup.sql"}
+{"level":"ERROR","time":"2025-04-13T01:00:01.828+0800","caller":"flag/enter.go:64","msg":"Failed to export SQL data:","error":"exec: \"mysqldump\": executable file not found in %PATH%"}
+{"level":"INFO","time":"2025-04-13T01:01:22.732+0800","caller":"flag/sql_export.go:22","msg":"将使用PowerShell连接到阿里云服务器进行备份"}
+{"level":"INFO","time":"2025-04-13T01:01:27.230+0800","caller":"flag/sql_export.go:29","msg":"正在连接服务器并执行备份..."}
+{"level":"INFO","time":"2025-04-13T01:01:29.989+0800","caller":"flag/sql_export.go:81","msg":"备份成功完成！SQL文件已保存到: mysql_20250413.sql"}
+{"level":"INFO","time":"2025-04-13T01:01:29.990+0800","caller":"flag/enter.go:66","msg":"Successfully exported SQL data"}

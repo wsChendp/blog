@@ -16,7 +16,7 @@ func InitGorm() *gorm.DB {
 		Logger: logger.Default.LogMode(mysqlConfig.LogLevel()),
 	})
 	if err != nil {
-		global.Log.Error("数据库连接失败", zap.Error(err))
+		global.Log.Error("Failed to connect to database", zap.Error(err))
 	}
 	sqlDB, err := db.DB()
 	sqlDB.SetMaxIdleConns(mysqlConfig.MaxIdleConns)

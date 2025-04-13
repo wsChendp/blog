@@ -19,7 +19,7 @@ func ConnectRedis() *redis.Client {
 
 	_, err := client.Ping().Result()
 	if err != nil {
-		global.Log.Error("redis连接失败", zap.Error(err))
+		global.Log.Error("redis connection failed", zap.Error(err))
 		os.Exit(1)
 	}
 

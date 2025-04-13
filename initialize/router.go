@@ -5,9 +5,9 @@ import (
 	"server/global"
 )
 
-// InitRouter 初始化路由
+// InitRouter 鍒濆鍖栬矾鐢?
 func InitRouter() *gin.Engine {
-	// 设置gin模式
+	// 璁剧疆gin妯″紡
 	gin.SetMode(global.Config.System.Env)
 	Router := gin.Default()
 	// TODO

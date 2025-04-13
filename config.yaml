@@ -26,12 +26,12 @@ jwt:
     refresh_token_expiry_time: 7d
     issuer: go_blog
 mysql:
-    host: 127.0.0.1
+    host: 120.26.56.208
     port: 3306
     config: charset=utf8mb4&parseTime=True&loc=Local
     db_name: blog_db
-    username: root
-    password: root
+    username: blog_db
+    password: trJm6TdEG5m5LES3
     max_idle_conns: 10
     max_open_conns: 100
     log_mode: info

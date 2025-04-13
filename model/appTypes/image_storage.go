@@ -2,20 +2,20 @@ package appTypes
 
 import "encoding/json"
 
-// Storage 图片存储类型
+// Storage 鍥剧墖瀛樺偍绫诲瀷
 type Storage int
 
 const (
-	Local Storage = iota // 本地
-	Qiniu                // 七牛云
+	Local Storage = iota // 鏈湴
+	Qiniu                // 涓冪墰浜?
 )
 
-// MarshalJSON 实现了 json.Marshaler 接口
+// MarshalJSON 瀹炵幇浜?json.Marshaler 鎺ュ彛
 func (s Storage) MarshalJSON() ([]byte, error) {
 	return json.Marshal(s.String())
 }
 
-// UnmarshalJSON 实现了 json.Unmarshaler 接口
+// UnmarshalJSON 瀹炵幇浜?json.Unmarshaler 鎺ュ彛
 func (s *Storage) UnmarshalJSON(data []byte) error {
 	var str string
 	if err := json.Unmarshal(data, &str); err != nil {
@@ -25,26 +25,26 @@ func (s *Storage) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-// String 方法返回 Storage 的字符串表示
+// String 鏂规硶杩斿洖 Storage 鐨勫瓧绗︿覆琛ㄧず
 func (s Storage) String() string {
 	var str string
 	switch s {
 	case Local:
-		str = "本地"
+		str = "鏈湴"
 	case Qiniu:
-		str = "七牛云"
+		str = "涓冪墰浜?"
 	default:
-		str = "未知存储"
+		str = "鏈煡瀛樺偍"
 	}
 	return str
 }
 
-// ToStorage 函数将字符串转换为 Storage
+// ToStorage 鍑芥暟灏嗗瓧绗︿覆杞崲涓?Storage
 func ToStorage(str string) Storage {
 	switch str {
-	case "本地":
+	case "鏈湴":
 		return Local
-	case "七牛云":
+	case "涓冪墰浜?":
 		return Qiniu
 	default:
 		return -1

@@ -29,7 +29,7 @@ func ConnectES() *elasticsearch.TypedClient {
 	
 	client, err := elasticsearch.NewTypedClient(cfg)
 	if err != nil {
-		global.Log.Error("ES连接失败", zap.Error(err))
+		global.Log.Error("ES杩炴帴澶辫触", zap.Error(err))
 		os.Exit(1)
 	}
 	return client
