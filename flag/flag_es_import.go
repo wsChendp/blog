@@ -3,32 +3,33 @@ package flag
 import (
 	"context"
 	"encoding/json"
-	"github.com/elastic/go-elasticsearch/v8/typedapi/core/bulk"
-	"github.com/elastic/go-elasticsearch/v8/typedapi/types"
-	"github.com/elastic/go-elasticsearch/v8/typedapi/types/enums/refresh"
 	"os"
 	"server/global"
 	"server/model/elasticsearch"
 	"server/model/other"
 	"server/service"
+
+	"github.com/elastic/go-elasticsearch/v8/typedapi/core/bulk"
+	"github.com/elastic/go-elasticsearch/v8/typedapi/types"
+	"github.com/elastic/go-elasticsearch/v8/typedapi/types/enums/refresh"
 )
 
-// ElasticsearchImport ´ÓÖ¸¶¨µÄ JSON ÎÄ¼şµ¼ÈëÊı¾İµ½ ES
+// ElasticsearchImport ä»æŒ‡å®šçš„ JSON æ–‡ä»¶å¯¼å…¥æ•°æ®åˆ° ES
 func ElasticsearchImport(jsonPath string) (int, error) {
-	// ¶ÁÈ¡Ö¸¶¨Â·¾¶µÄ JSON ÎÄ¼ş
+	// è¯»å–æŒ‡å®šè·¯å¾„çš„ JSON æ–‡ä»¶
 	byteData, err := os.ReadFile(jsonPath)
 	if err != nil {
 		return 0, err
 	}
 
-	// ·´ĞòÁĞ»¯ JSON Êı¾İµ½ ESIndexResponse ½á¹¹Ìå
+	// ååºåˆ—åŒ– JSON æ•°æ®åˆ° ESIndexResponse ç»“æ„ä½“
 	var response other.ESIndexResponse
 	err = json.Unmarshal(byteData, &response)
 	if err != nil {
 		return 0, err
 	}
 
-	// ´´½¨ Elasticsearch Ë÷Òı
+	// åˆ›å»º Elasticsearch ç´¢å¼•
 	esService := service.ServiceGroupApp.EsService
 	indexExists, err := esService.IndexExists(elasticsearch.ArticleIndex())
 	if err != nil {
@@ -44,26 +45,26 @@ func ElasticsearchImport(jsonPath string) (int, error) {
 		return 0, err
 	}
 
-	// ¹¹½¨ÅúÁ¿ÇëÇóÊı¾İ
+	// æ„å»ºæ‰¹é‡è¯·æ±‚æ•°æ®
 	var request bulk.Request
 	for _, data := range response.Data {
-		// ÎªÃ¿ÌõÊı¾İ´´½¨Ë÷Òı²Ù×÷£¬Ö¸¶¨ÎÄµµµÄ ID
+		// ä¸ºæ¯æ¡æ•°æ®åˆ›å»ºç´¢å¼•æ“ä½œï¼ŒæŒ‡å®šæ–‡æ¡£çš„ ID
 		request = append(request, types.OperationContainer{Index: &types.IndexOperation{Id_: data.ID}})
-		// Ìí¼ÓÎÄµµÊı¾İµ½ÇëÇó
+		// æ·»åŠ æ–‡æ¡£æ•°æ®åˆ°è¯·æ±‚
 		request = append(request, data.Doc)
 	}
 
-	// Ê¹ÓÃ Elasticsearch ¿Í»§¶ËÖ´ĞĞÅúÁ¿²Ù×÷
+	// ä½¿ç”¨ Elasticsearch å®¢æˆ·ç«¯æ‰§è¡Œæ‰¹é‡æ“ä½œ
 	_, err = global.ESClient.Bulk().
-		Request(&request).                   // Ìá½»ÇëÇóÊı¾İ
-		Index(elasticsearch.ArticleIndex()). // Ö¸¶¨Ë÷ÒıÃû³Æ
-		Refresh(refresh.True).               // Ç¿ÖÆË¢ĞÂË÷ÒıÒÔÊ¹ÎÄµµÁ¢¼´¿É¼û
-		Do(context.TODO())                   // Ö´ĞĞÇëÇó
+		Request(&request).                   // æäº¤è¯·æ±‚æ•°æ®
+		Index(elasticsearch.ArticleIndex()). // æŒ‡å®šç´¢å¼•åç§°
+		Refresh(refresh.True).               // å¼ºåˆ¶åˆ·æ–°ç´¢å¼•ä»¥ä½¿æ–‡æ¡£ç«‹å³å¯è§
+		Do(context.TODO())                   // æ‰§è¡Œè¯·æ±‚
 	if err != nil {
 		return 0, err
 	}
 
-	// ·µ»Øµ¼ÈëµÄÊı¾İ×ÜÌõÊı
+	// è¿”å›å¯¼å…¥çš„æ•°æ®æ€»æ¡æ•°
 	total := len(response.Data)
 	return total, nil
 }

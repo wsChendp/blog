@@ -53,3 +53,6 @@
 {"level":"INFO","time":"2025-04-13T01:01:29.990+0800","caller":"flag/enter.go:66","msg":"Successfully exported SQL data"}
 {"level":"INFO","time":"2025-04-13T11:30:40.283+0800","caller":"core/server.go:24","msg":"server run success on ","address":"0.0.0.0:8080"}
 {"level":"ERROR","time":"2025-04-13T11:30:49.943+0800","caller":"flag/enter.go:83","msg":"Failed to create ES indices:","error":"an error happened during the Exists query execution: dial tcp 127.0.0.1:9200: connectex: No connection could be made because the target machine actively refused it."}
+{"level":"ERROR","time":"2025-04-13T12:05:26.439+0800","caller":"flag/enter.go:107","msg":"unknown command","error":"unknown command"}
+{"level":"ERROR","time":"2025-04-13T12:06:37.847+0800","caller":"flag/enter.go:101","msg":"Failed to create an administrator:","error":"password length should be between 8 and 20 characters"}
+{"level":"INFO","time":"2025-04-13T12:07:13.217+0800","caller":"flag/enter.go:103","msg":"Successfully created an administrator"}

@@ -7,7 +7,7 @@ type Data struct {
 	Doc json.RawMessage `json:"doc"`
 }
 
-// ESIndexResponse ES Êı¾İ
+// ESIndexResponse ES æ•°æ®
 type ESIndexResponse struct {
 	Data []Data `json:"data"`
 }

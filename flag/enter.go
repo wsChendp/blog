@@ -84,24 +84,24 @@ switch {
 		} else {
 			global.Log.Info("Successfully created ES indices")
 		}
-	// case c.Bool(esExportFlag.Name):
-	// 	if err := ElasticsearchExport(); err != nil {
-	// 		global.Log.Error("Failed to export ES data:", zap.Error(err))
-	// 	} else {
-	// 		global.Log.Info("Successfully exported ES data")
-	// 	}
-	// case c.IsSet(esImportFlag.Name):
-	// 	if num, err := ElasticsearchImport(c.String(esImportFlag.Name)); err != nil {
-	// 		global.Log.Error("Failed to import ES data:", zap.Error(err))
-	// 	} else {
-	// 		global.Log.Info(fmt.Sprintf("Successfully imported ES data, totaling %d records", num))
-	// 	}
-	// case c.Bool(adminFlag.Name):
-	// 	if err := Admin(); err != nil {
-	// 		global.Log.Error("Failed to create an administrator:", zap.Error(err))
-	// 	} else {
-	// 		global.Log.Info("Successfully created an administrator")
-	// 	}
+	case c.Bool(esExportFlag.Name):
+		if err := ElasticsearchExport(); err != nil {
+			global.Log.Error("Failed to export ES data:", zap.Error(err))
+		} else {
+			global.Log.Info("Successfully exported ES data")
+		}
+	case c.IsSet(esImportFlag.Name):
+		if num, err := ElasticsearchImport(c.String(esImportFlag.Name)); err != nil {
+			global.Log.Error("Failed to import ES data:", zap.Error(err))
+		} else {
+			global.Log.Info(fmt.Sprintf("Successfully imported ES data, totaling %d records", num))
+		}
+	case c.Bool(adminFlag.Name):
+		if err := Admin(); err != nil {
+			global.Log.Error("Failed to create an administrator:", zap.Error(err))
+		} else {
+			global.Log.Info("Successfully created an administrator")
+		}
 	default:
 		err := cli.NewExitError("unknown command", 1)
 		global.Log.Error(err.Error(), zap.Error(err))
