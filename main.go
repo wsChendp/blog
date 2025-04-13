@@ -13,7 +13,7 @@ func main() {
 	initialize.OtherInit()
 
 	global.DB = initialize.InitGorm()
-	global.ES = initialize.ConnectES()
+	global.ESClient = initialize.ConnectES()
 	global.Redis = initialize.ConnectRedis()
 
 	defer global.Redis.Close()

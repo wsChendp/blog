@@ -6,21 +6,21 @@ import (
 	"strings"
 )
 
-// SQLImport 导入 MySQL 数据
+// SQLImport 瀵煎叆 MySQL 鏁版嵁
 func SQLImport(sqlPath string) (errs []error) {
 	byteData, err := os.ReadFile(sqlPath)
 	if err != nil {
 		return append(errs, err)
 	}
-	// 分割数据
+	// 鍒嗗壊鏁版嵁
 	sqlList := strings.Split(string(byteData), ";")
 	for _, sql := range sqlList {
-		// 去除字符串开头和结尾的空白符
+		// 鍘婚櫎瀛楃涓插紑澶村拰缁撳熬鐨勭┖鐧界
 		sql = strings.TrimSpace(sql)
 		if sql == "" {
 			continue
 		}
-		// 执行sql语句
+		// 鎵цsql璇彞
 		err = global.DB.Exec(sql).Error
 		if err != nil {
 			errs = append(errs, err)

@@ -1,11 +1,13 @@
 package flag
 
 import (
+	"errors"
 	"fmt"
-	"github.com/urfave/cli"
-	"go.uber.org/zap"
 	"os"
 	"server/global"
+
+	"github.com/urfave/cli"
+	"go.uber.org/zap"
 )
 
 // 定义 CLI 标志，用于不同操作的命令行选项
@@ -66,22 +68,22 @@ switch {
 			global.Log.Info("Successfully exported SQL data")
 		}
 	case c.IsSet(sqlImportFlag.Name):
-		// if errs := SQLImport(c.String(sqlImportFlag.Name)); len(errs) > 0 {
-		// 	var combinedErrors string
-		// 	for _, err := range errs {
-		// 		combinedErrors += err.Error() + "\n"
-		// 	}
-		// 	err := errors.New(combinedErrors)
-		// 	global.Log.Error("Failed to import SQL data:", zap.Error(err))
-		// } else {
-		// 	global.Log.Info("Successfully imported SQL data")
-		// }
-	// case c.Bool(esFlag.Name):
-	// 	if err := Elasticsearch(); err != nil {
-	// 		global.Log.Error("Failed to create ES indices:", zap.Error(err))
-	// 	} else {
-	// 		global.Log.Info("Successfully created ES indices")
-	// 	}
+		if errs := SQLImport(c.String(sqlImportFlag.Name)); len(errs) > 0 {
+			var combinedErrors string
+			for _, err := range errs {
+				combinedErrors += err.Error() + "\n"
+			}
+			err := errors.New(combinedErrors)
+			global.Log.Error("Failed to import SQL data:", zap.Error(err))
+		} else {
+			global.Log.Info("Successfully imported SQL data")
+		}
+	case c.Bool(esFlag.Name):
+		if err := Elasticsearch(); err != nil {
+			global.Log.Error("Failed to create ES indices:", zap.Error(err))
+		} else {
+			global.Log.Info("Successfully created ES indices")
+		}
 	// case c.Bool(esExportFlag.Name):
 	// 	if err := ElasticsearchExport(); err != nil {
 	// 		global.Log.Error("Failed to export ES data:", zap.Error(err))
