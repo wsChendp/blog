@@ -22,6 +22,8 @@ require (
 
 require (
 	github.com/gin-contrib/sessions v1.0.3
+	github.com/gofrs/uuid v4.4.0+incompatible
+	github.com/golang-jwt/jwt/v4 v4.5.2
 	golang.org/x/term v0.31.0
 )
 
@@ -30,6 +32,8 @@ require (
 	github.com/gorilla/context v1.1.2 // indirect
 	github.com/gorilla/securecookie v1.1.2 // indirect
 	github.com/gorilla/sessions v1.4.0 // indirect
+	github.com/hashicorp/golang-lru v1.0.2 // indirect
+	github.com/ua-parser/uap-go v0.0.0-20250326155420-f7f5a2f9f5bc // indirect
 	golang.org/x/image v0.23.0 // indirect
 )
 

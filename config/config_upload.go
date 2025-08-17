@@ -1,6 +1,6 @@
 package config
 
 type Upload struct {
-    Size int    `json:"size" yaml:"size"` // 鍥剧墖涓婁紶鐨勫ぇ灏忥紝鍗曚綅 MB
-	Path string `json:"path" yaml:"path"` // 鍥剧墖涓婁紶鐨勭洰褰?
+	Size int    `json:"size" yaml:"size"` // 图片上传的大小，单位 MB
+	Path string `json:"path" yaml:"path"` // 图片上传的目标路径
 }

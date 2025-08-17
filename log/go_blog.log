@@ -62,3 +62,21 @@
 {"level":"INFO","time":"2025-04-17T22:43:29.679+0800","caller":"core/server.go:24","msg":"server run success on ","address":"0.0.0.0:8080"}
 {"level":"ERROR","time":"2025-04-17T22:47:10.909+0800","caller":"core/server.go:25","msg":"accept tcp [::]:8080: use of closed network connection"}
 {"level":"INFO","time":"2025-04-17T22:48:35.996+0800","caller":"core/server.go:24","msg":"server run success on ","address":"0.0.0.0:8080"}
+{"level":"ERROR","time":"2025-08-16T17:16:16.805+0800","caller":"initialize/gorm.go:19","msg":"Failed to connect to database","error":"Error 1045 (28000): Access denied for user 'blog_db'@'localhost' (using password: YES)"}
+{"level":"ERROR","time":"2025-08-16T17:18:38.695+0800","caller":"initialize/gorm.go:19","msg":"Failed to connect to database","error":"Error 1045 (28000): Access denied for user 'blog_db'@'localhost' (using password: YES)"}
+{"level":"ERROR","time":"2025-08-16T17:27:27.766+0800","caller":"initialize/gorm.go:19","msg":"Failed to connect to database","error":"Error 1045 (28000): Access denied for user 'blog_db'@'localhost' (using password: YES)"}
+{"level":"ERROR","time":"2025-08-16T17:33:32.290+0800","caller":"initialize/gorm.go:19","msg":"Failed to connect to database","error":"Error 1045 (28000): Access denied for user 'blog_db'@'localhost' (using password: YES)"}
+{"level":"ERROR","time":"2025-08-16T17:33:44.373+0800","caller":"initialize/gorm.go:19","msg":"Failed to connect to database","error":"Error 1045 (28000): Access denied for user 'blog_db'@'localhost' (using password: YES)"}
+{"level":"ERROR","time":"2025-08-16T17:35:36.021+0800","caller":"initialize/gorm.go:19","msg":"Failed to connect to database","error":"Error 1049 (42000): Unknown database 'blog_db'"}
+{"level":"INFO","time":"2025-08-16T17:36:05.795+0800","caller":"flag/enter.go:62","msg":"Successfully created table structure"}
+{"level":"ERROR","time":"2025-08-16T18:48:57.575+0800","caller":"flag/enter.go:83","msg":"Failed to create ES indices:","error":"an error happened during the Exists query execution: dial tcp 127.0.0.1:9200: connect: connection refused"}
+{"level":"ERROR","time":"2025-08-16T18:55:42.120+0800","caller":"initialize/gorm.go:19","msg":"Failed to connect to database","error":"Error 1049 (42000): Unknown database 'blog_db'"}
+{"level":"INFO","time":"2025-08-16T18:55:42.259+0800","caller":"flag/enter.go:85","msg":"Successfully created ES indices"}
+{"level":"ERROR","time":"2025-08-16T19:48:02.391+0800","caller":"initialize/gorm.go:19","msg":"Failed to connect to database","error":"Error 1049 (42000): Unknown database 'blog_db'"}
+{"level":"ERROR","time":"2025-08-16T19:48:38.650+0800","caller":"flag/enter.go:101","msg":"Failed to create an administrator:","error":"password length should be between 8 and 20 characters"}
+{"level":"ERROR","time":"2025-08-16T19:48:45.723+0800","caller":"initialize/gorm.go:19","msg":"Failed to connect to database","error":"Error 1049 (42000): Unknown database 'blog_db'"}
+{"level":"ERROR","time":"2025-08-16T19:49:10.600+0800","caller":"flag/enter.go:101","msg":"Failed to create an administrator:","error":"passwords do not match"}
+{"level":"ERROR","time":"2025-08-16T19:49:21.484+0800","caller":"initialize/gorm.go:19","msg":"Failed to connect to database","error":"Error 1049 (42000): Unknown database 'blog_db'"}
+{"level":"ERROR","time":"2025-08-16T19:49:38.581+0800","caller":"flag/enter.go:101","msg":"Failed to create an administrator:","error":"passwords do not match"}
+{"level":"INFO","time":"2025-08-17T14:31:59.683+0800","caller":"core/server.go:24","msg":"server run success on ","address":"0.0.0.0:8080"}
+{"level":"ERROR","time":"2025-08-18T01:44:27.968+0800","caller":"core/server.go:25","msg":"accept tcp [::]:8080: use of closed network connection"}

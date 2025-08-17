@@ -74,7 +74,6 @@ func ElasticsearchExport() error {
 
 	// 生成文件名，格式为 "es_yyyyMMdd.json"
 	fileName := fmt.Sprintf("es_%s.json", time.Now().Format("20060102"))
-
 	// 创建文件
 	file, err := os.Create(fileName)
 	if err != nil {

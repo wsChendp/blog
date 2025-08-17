@@ -17,21 +17,21 @@ es:
     password: ""
     is_console_print: true
 gaode:
-    enable: false
-    key: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    enable: true
+    key: c454a58f33fbbd70de04293f0ec3a074
 jwt:
-    access_token_secret: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-    refresh_token_secret: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    access_token_secret: 0tSQl6hUPPRcZdmTiQY31pp0HlBdxTapAb74NIYqg0w
+    refresh_token_secret: demitCaE9-Sk8oa0aR53MtGjnC-NlH0ZysSa8MG4X9w=
     access_token_expiry_time: 2h
     refresh_token_expiry_time: 7d
     issuer: go_blog
 mysql:
-    host: 120.26.56.208
+    host: localhost
     port: 3306
     config: charset=utf8mb4&parseTime=True&loc=Local
     db_name: blog_db
-    username: blog_db
-    password: trJm6TdEG5m5LES3
+    username: root
+    password:
     max_idle_conns: 10
     max_open_conns: 100
     log_mode: info

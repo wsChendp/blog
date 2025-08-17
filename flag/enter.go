@@ -53,7 +53,7 @@ func Run(c *cli.Context) {
 	}
 
 	// 根据不同的标志选择执行的操作
-switch {
+	switch {
 	case c.Bool(sqlFlag.Name):
 		if err := SQL(); err != nil {
 			global.Log.Error("Failed to create table structure:", zap.Error(err))
