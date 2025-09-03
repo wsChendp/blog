@@ -6,15 +6,15 @@ import (
 	"strings"
 )
 
-// System 绯荤粺閰嶇疆
+// System 系统配置
 type System struct {
-	Host           string `json:"-" yaml:"host"`                          // 鏈嶅姟鍣ㄧ粦瀹氱殑涓绘満鍦板潃锛岄€氬父涓?0.0.0.0 琛ㄧず鐩戝惉鎵€鏈夊彲鐢ㄥ湴鍧€
-	Port           int    `json:"-" yaml:"port"`                          // 鏈嶅姟鍣ㄧ洃鍚殑绔彛鍙凤紝閫氬父鐢ㄤ簬 HTTP 鏈嶅姟
-	Env            string `json:"-" yaml:"env"`                           // Gin 鐨勭幆澧冪被鍨嬶紝渚嬪 "debug"銆?release" 鎴?"test"
-	RouterPrefix   string `json:"-" yaml:"router_prefix"`                 // API 璺敱鍓嶇紑锛岀敤浜庢瀯寤?API 璺緞
-	UseMultipoint  bool   `json:"use_multipoint" yaml:"use_multipoint"`   // 鏄惁鍚敤澶氱偣鐧诲綍鎷︽埅锛岄槻姝㈠悓涓€璐︽埛鍦ㄥ涓湴鏂瑰悓鏃剁櫥褰?
-	SessionsSecret string `json:"sessions_secret" yaml:"sessions_secret"` // 鐢ㄤ簬鍔犲瘑浼氳瘽鐨勫瘑閽ワ紝纭繚浼氳瘽鏁版嵁鐨勫畨鍏ㄦ€?
-	OssType        string `json:"oss_type" yaml:"oss_type"`               // 瀵瑰簲鐨勫璞″瓨鍌ㄦ湇鍔＄被鍨嬶紝濡?"local" 鎴?"qiniu"
+	Host           string `json:"-" yaml:"host"`                          // 服务器绑定的主机地址，��常�?0.0.0.0 表示监听扢�有可用地坢�
+	Port           int    `json:"-" yaml:"port"`                          // 服务器监听的端口号，通常用于 HTTP 服务
+	Env            string `json:"-" yaml:"env"`                           // Gin 的环境类型，例如 "debug"�?release" �?"test"
+	RouterPrefix   string `json:"-" yaml:"router_prefix"`                 // API 路由前缀，用于构�?API 路径
+	UseMultipoint  bool   `json:"use_multipoint" yaml:"use_multipoint"`   // 是否启用多点登录拦截，防止同丢�账户在多个地方同时登�?
+	SessionsSecret string `json:"sessions_secret" yaml:"sessions_secret"` // 用于加密会话的密钥，确保会话数据的安全��?
+	OssType        string `json:"oss_type" yaml:"oss_type"`               // 对应的对象存储服务类型，�?"local" �?"qiniu"
 }
 
 func (s System) Addr() string {

@@ -4,7 +4,7 @@ import (
 	"server/global"
 	"server/model/appTypes"
 
-	"github.com/google/uuid"
+	"github.com/gofrs/uuid"
 )
 
 type User struct {

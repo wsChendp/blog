@@ -3,8 +3,8 @@ package request
 import (
 	"server/model/appTypes"
 
+	"github.com/gofrs/uuid"
 	"github.com/golang-jwt/jwt/v4"
-	"github.com/google/uuid"
 )
 
 // JwtCustomClaims 结构体用于存储JWT的自定义Claims，继承自BaseClaims，并包含标准的JWT注册信息
