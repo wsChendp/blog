@@ -1,9 +1,10 @@
 package router
 
 import (
-	"github.com/gin-gonic/gin"
 	"server/api"
 	"server/middleware"
+
+	"github.com/gin-gonic/gin"
 )
 
 type UserRouter struct {
