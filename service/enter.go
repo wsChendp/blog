@@ -7,6 +7,7 @@ type ServiceGroup struct {
 	GaodeService
 	QQService
 	UserService
+	ImageService
 }
 
 var ServiceGroupApp = new(ServiceGroup)

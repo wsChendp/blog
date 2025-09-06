@@ -33,6 +33,7 @@ require (
 	github.com/gorilla/securecookie v1.1.2 // indirect
 	github.com/gorilla/sessions v1.4.0 // indirect
 	github.com/hashicorp/golang-lru v1.0.2 // indirect
+	github.com/qiniu/go-sdk/v7 v7.25.4 // indirect
 	github.com/ua-parser/uap-go v0.0.0-20250326155420-f7f5a2f9f5bc // indirect
 	golang.org/x/image v0.23.0 // indirect
 )

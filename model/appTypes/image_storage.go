@@ -6,8 +6,8 @@ import "encoding/json"
 type Storage int
 
 const (
-	Local Storage = iota // 鏈湴
-	Qiniu                // 涓冪墰浜?
+	Local Storage = iota // 本地
+	Qiniu                // 七牛云
 )
 
 // MarshalJSON 瀹炵幇浜?json.Marshaler 鎺ュ彛
