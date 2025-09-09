@@ -192,11 +192,11 @@ func (articleService *ArticleService) ArticleLikesList(info request.ArticleLikes
 }
 
 func (articleService *ArticleService) ArticleCreate(req request.ArticleCreate) error {
-	b, err := articleService.Exits(req.Title)
+	exit, err := articleService.Exits(req.Title)
 	if err != nil {
 		return err
 	}
-	if b {
+	if exit {
 		return errors.New("the article already exists")
 	}
 	now := time.Now().Format("2006-01-02 15:04:05")
