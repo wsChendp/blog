@@ -5,11 +5,13 @@ type ServiceGroup struct {
 	BaseService
 	JwtService
 	GaodeService
-	QQService
 	UserService
+	QQService
 	ImageService
 	ArticleService
 	CommentService
+	AdvertisementService
+	FriendLinkService
 }
 
 var ServiceGroupApp = new(ServiceGroup)
