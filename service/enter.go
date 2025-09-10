@@ -9,6 +9,7 @@ type ServiceGroup struct {
 	UserService
 	ImageService
 	ArticleService
+	CommentService
 }
 
 var ServiceGroupApp = new(ServiceGroup)
