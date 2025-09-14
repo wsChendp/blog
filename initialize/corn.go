@@ -13,7 +13,6 @@ type ZapLogger struct {
 	logger *zap.Logger
 }
 
-// 瀹炵幇cron.Logger鎺ュ彛
 func (l *ZapLogger) Info(msg string, keysAndValues ...interface{}) {
 	l.logger.Info(msg, zap.Any("keysAndValues", keysAndValues))
 }
@@ -31,7 +30,7 @@ func InitCron() *cron.Cron {
 
 	err := task.RegisterScheduledTasks(c)
 	if err != nil {
-		global.Log.Error("瀹氭椂浠诲姟娉ㄥ唽澶辫触", zap.Error(err))
+		global.Log.Error("定时任务初始化异常", zap.Error(err))
 		os.Exit(1)
 	}
 	return c
